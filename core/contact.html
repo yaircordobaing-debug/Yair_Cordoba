@@ -4,80 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto | Yair Córdoba - Bug.com</title>
+  <meta name="description" content="Contáctame para proyectos de ingeniería, colaboraciones o consultas técnicas. Yair Córdoba, desarrollador en Medellín.">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
   <style>
-    :root {
-      --contact-bg: #0a0f18;
-      --input-bg: rgba(255, 255, 255, 0.05);
-      --accent-color: #1bb4b9;
+    /* ── CONTACT PAGE — MOBILE FIRST ── */
+
+    .contact-page {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .contact-wrapper {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 40px;
-      overflow: hidden;
+    /* Hero text block */
+    .contact-hero {
+      text-align: center;
+      padding: 20px 0 10px;
+    }
+
+    .contact-hero h1 {
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 12px 0 12px;
+    }
+
+    .contact-hero p {
+      font-size: clamp(0.88rem, 3vw, 1rem);
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Contact info cards */
+    .info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 600px;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+      gap: 12px;
     }
 
-    .contact-info-side {
-      padding: 60px;
-      background: linear-gradient(135deg, rgba(27, 180, 185, 0.05) 0%, transparent 100%);
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 16px;
     }
 
-    .contact-form-side {
-      padding: 60px;
-      background: rgba(255, 255, 255, 0.02);
-      border-left: 1px solid var(--border);
+    .info-card .info-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: rgba(27,180,185,0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
     }
 
-    .info-item {
-      margin-bottom: 40px;
+    .info-card h4 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      margin-bottom: 4px;
     }
-    .info-item h4 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-      color: var(--text-main);
-    }
-    .info-item p {
+
+    .info-card p {
+      font-size: 0.75rem;
       color: var(--text-muted);
-      font-size: 0.95rem;
+      margin-bottom: 4px;
     }
-    .info-item a {
-      color: var(--accent-color);
+
+    .info-card a {
+      font-size: 0.78rem;
+      color: var(--primary);
       text-decoration: none;
       font-weight: 600;
+      word-break: break-all;
+    }
+
+    /* Contact Form */
+    .contact-form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px 20px;
+    }
+
+    .contact-form-card h2 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
     }
 
     .form-group {
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
+
     .form-group label {
       display: block;
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.82rem;
+      font-weight: 700;
       color: var(--text-muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
     }
+
     .form-control {
       width: 100%;
-      background: var(--input-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 18px;
+      background: var(--bg-page);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
       color: var(--text-main);
       font-family: inherit;
-      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
     }
+
     .form-control:focus {
       outline: none;
-      border-color: var(--accent-color);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 15px rgba(27, 180, 185, 0.2);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(27,180,185,0.12);
     }
 
     textarea.form-control {
@@ -85,83 +133,179 @@
       resize: vertical;
     }
 
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
     .btn-submit {
       width: 100%;
-      background: var(--accent-color);
+      min-height: 52px;
+      background: var(--primary);
       color: white;
       border: none;
-      border-radius: 12px;
-      padding: 16px;
-      font-weight: 700;
+      border-radius: 14px;
+      font-weight: 800;
       font-size: 1rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      font-family: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
+
+    .btn-submit:active {
+      transform: scale(0.97);
+    }
+
     .btn-submit:hover {
-      background: #15a0a5;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(27, 180, 185, 0.3);
+      box-shadow: 0 8px 20px rgba(27,180,185,0.3);
     }
 
-    .bottom-cta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .cta-card {
+    /* Social card */
+    .social-card {
       background: var(--bg-card);
-      border-radius: 30px;
-      padding: 40px;
-      border: 1px solid rgba(27, 180, 185, 0.2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px 20px;
+    }
+
+    .social-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .social-links-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .social-btn {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 16px 10px;
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.72rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      min-height: 70px;
+    }
+
+    .social-btn:active { transform: scale(0.95); }
+
+    .social-btn .material-symbols-outlined { font-size: 22px; }
+
+    .social-btn.github:hover  { border-color: #333; color: #333; }
+    .social-btn.linkedin:hover { border-color: #0077b5; color: #0077b5; }
+    .social-btn.codepen:hover  { border-color: #47cf73; color: #47cf73; }
+    .social-btn.email:hover    { border-color: var(--primary); color: var(--primary); }
+
+    /* CV Download Card */
+    .cv-card {
+      background: linear-gradient(135deg, var(--primary) 0%, #0891b2 100%);
+      border-radius: 24px;
+      padding: 28px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .cv-card h3 {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .cv-card p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 14px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: transform 0.15s ease;
+    }
+
+    .btn-white:active { transform: scale(0.96); }
+
+    /* Footer brand */
+    .contact-brand {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 20px;
       text-align: center;
     }
 
-    .social-footer-card {
-      background: var(--bg-card);
-      border-radius: 30px;
-      padding: 40px;
-      border: 1px solid var(--border);
+    .contact-brand h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
     }
 
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin: 20px 0;
-    }
-    .social-icon {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-main);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 1px solid var(--border);
-    }
-    .social-icon:hover {
-      background: var(--accent-color);
-      color: white;
-      transform: scale(1.1);
+    .contact-brand p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 6px;
     }
 
-    @media (max-width: 992px) {
-      .contact-wrapper { grid-template-columns: 1fr; border-radius: 25px; }
-      .contact-info-side, .contact-form-side { padding: 40px 30px; }
-      .contact-form-side { border-left: none; border-top: 1px solid var(--border); }
-      .bottom-cta-grid { grid-template-columns: 1fr; }
+    /* Desktop layout */
+    @media (min-width: 769px) {
+      .contact-page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 40px;
+        gap: 30px;
+      }
+
+      .contact-hero { text-align: left; }
+
+      .contact-main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 30px;
+        align-items: start;
+      }
+
+      .info-grid { grid-template-columns: 1fr; }
+
+      .form-row { grid-template-columns: 1fr 1fr; }
+
+      .social-links-row { flex-wrap: wrap; }
+
+      .bottom-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 24px;
+      }
     }
-    @media (max-width: 480px) {
-      .hero-title { font-size: 2.2rem !important; }
-      .form-row { grid-template-columns: 1fr !important; }
+
+    @media (max-width: 400px) {
+      .form-row { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -169,99 +313,143 @@
 
   <nav-bar></nav-bar>
 
-  <main style="padding-top: 120px; padding-bottom: 80px;">
-    <div class="container">
-      
-      <div class="contact-wrapper fade-in-up">
-        <!-- Left Side: Info -->
-        <div class="contact-info-side">
-          <h1 class="hero-title" data-i18n="contact.get_in_touch">Ponte en <span class="text-gradient">contacto</span></h1>
-          <p class="hero-subtitle text-secondary" data-i18n="contact.form_intro">
-            ¿Tienes alguna pregunta, comentario o simplemente quieres saludar? Me encantaría saber de ti y conectar con la comunidad técnica.
-          </p>
+  <main>
+    <div class="contact-page">
 
-          <div class="grid-2 info-items-grid">
-            <div class="info-item">
-              <h4 data-i18n="contact.chat_label">Chatéame</h4>
-              <p data-i18n="contact.chat_desc">Estoy aquí para ayudarte.</p>
-              <a href="mailto:yair.cordoba.ing@gmail.com">yair.cordoba.ing@gmail.com</a>
+      <!-- ── HERO ── -->
+      <div class="contact-hero">
+        <div class="badge" data-i18n="contact.badge">HABLEMOS</div>
+        <h1>Ponte en <span class="text-gradient">Contacto</span></h1>
+        <p data-i18n="contact.form_intro">¿Tienes un proyecto, idea o simplemente quieres conectar? Estoy disponible para colaboraciones técnicas y oportunidades profesionales.</p>
+      </div>
+
+      <!-- ── MAIN GRID (stacks on mobile) ── -->
+      <div class="contact-main-grid">
+
+        <!-- Left: Info -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-icon">
+                <span class="material-symbols-outlined" style="color:var(--primary);font-size:20px;">alternate_email</span>
+              </div>
+              <h4 data-i18n="contact.chat_label">Email</h4>
+              <p data-i18n="contact.chat_desc">Disponible 24/7</p>
+              <a href="mailto:yair.cordoba.ing@gmail.com">yair.cordoba.ing<br>@gmail.com</a>
             </div>
 
-            <div class="info-item">
-              <h4 data-i18n="contact.call_label">Llámame</h4>
-              <p data-i18n="contact.call_desc">Lunes a Viernes 9am-6pm.</p>
+            <div class="info-card">
+              <div class="info-icon">
+                <span class="material-symbols-outlined" style="color:var(--primary);font-size:20px;">call</span>
+              </div>
+              <h4 data-i18n="contact.call_label">Teléfono</h4>
+              <p data-i18n="contact.call_desc">Lun–Vie 9am–6pm</p>
               <a href="tel:+573008187157">+57 300 818 7157</a>
             </div>
 
-            <div class="info-item">
-              <h4 data-i18n="contact.visit_label">Visítame</h4>
-              <p data-i18n="contact.visit_desc">Disponible para remoto.</p>
+            <div class="info-card">
+              <div class="info-icon">
+                <span class="material-symbols-outlined" style="color:var(--primary);font-size:20px;">location_on</span>
+              </div>
+              <h4 data-i18n="contact.visit_label">Ubicación</h4>
+              <p data-i18n="contact.visit_desc">Remoto disponible</p>
               <a href="#">Medellín, Colombia</a>
             </div>
 
-            <div class="info-item">
-              <h4 data-i18n="contact.social_label">Social</h4>
-              <p data-i18n="contact.social_desc">Conectemos profesionalmente.</p>
-              <a href="https://linkedin.com/in/yair-cordoba">LinkedIn Profile</a>
+            <div class="info-card">
+              <div class="info-icon">
+                <span class="material-symbols-outlined" style="color:var(--primary);font-size:20px;">work</span>
+              </div>
+              <h4>LinkedIn</h4>
+              <p data-i18n="contact.social_desc">Red profesional</p>
+              <a href="https://linkedin.com/in/yair-cordoba" target="_blank">Ver Perfil →</a>
             </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-card">
+            <h3>Encuéntrame en</h3>
+            <div class="social-links-row">
+              <a href="https://github.com/yaircordobaing-debug" target="_blank" class="social-btn github">
+                <span class="material-symbols-outlined">code</span>
+                GitHub
+              </a>
+              <a href="https://linkedin.com/in/yair-cordoba" target="_blank" class="social-btn linkedin">
+                <span class="material-symbols-outlined">link</span>
+                LinkedIn
+              </a>
+              <a href="https://codepen.io/Yair-Cordoba" target="_blank" class="social-btn codepen">
+                <span class="material-symbols-outlined">share</span>
+                CodePen
+              </a>
+              <a href="mailto:yair.cordoba.ing@gmail.com" class="social-btn email">
+                <span class="material-symbols-outlined">mail</span>
+                Email
+              </a>
+            </div>
+            <p style="font-size:0.78rem;color:var(--text-muted);text-align:center;" data-i18n="contact.disclaimer">
+              Portafolio profesional de ingeniería — Bug.com
+            </p>
           </div>
         </div>
 
-        <!-- Right Side: Form -->
-        <div class="contact-form-side">
+        <!-- Right: Form -->
+        <div class="contact-form-card">
+          <h2>✉️ Envíame un mensaje</h2>
           <form id="contact-form">
-            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="form-row">
               <div class="form-group">
-                <label for="name" data-i18n="contact.name_field">Nombre*</label>
-                <input type="text" id="name" class="form-control" placeholder="Tu nombre" required>
+                <label for="name" data-i18n="contact.name_field">Nombre *</label>
+                <input type="text" id="name" class="form-control" placeholder="Tu nombre" required autocomplete="given-name">
               </div>
               <div class="form-group">
-                <label for="last_name" data-i18n="contact.lastname_field">Apellido*</label>
-                <input type="text" id="last_name" class="form-control" placeholder="Tu apellido" required>
+                <label for="last_name" data-i18n="contact.lastname_field">Apellido *</label>
+                <input type="text" id="last_name" class="form-control" placeholder="Tu apellido" required autocomplete="family-name">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="email" data-i18n="contact.email_field">Email*</label>
-              <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com" required>
+              <label for="email" data-i18n="contact.email_field">Email *</label>
+              <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com" required autocomplete="email">
             </div>
 
             <div class="form-group">
-              <label for="message" data-i18n="contact.message_field">Tu mensaje*</label>
-              <textarea id="message" class="form-control" placeholder="¿En qué puedo ayudarte?" required></textarea>
+              <label for="subject">Asunto</label>
+              <input type="text" id="subject" class="form-control" placeholder="¿De qué se trata?">
             </div>
 
-            <button type="submit" class="btn-submit" data-i18n="contact.send_btn">Enviar mensaje</button>
+            <div class="form-group">
+              <label for="message" data-i18n="contact.message_field">Mensaje *</label>
+              <textarea id="message" class="form-control" placeholder="Cuéntame sobre tu proyecto o idea..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <span class="material-symbols-outlined" style="font-size:20px;">send</span>
+              <span data-i18n="contact.send_btn">Enviar Mensaje</span>
+            </button>
           </form>
         </div>
+
       </div>
 
-      <!-- Bottom Grid Section -->
-      <div class="bottom-cta-grid fade-in-up">
-        <!-- Download/CTA Card -->
-        <div class="cta-card">
-          <h3 style="font-size: 1.5rem; margin-bottom: 15px;" data-i18n="contact.cv_title">Potencia tu equipo: Descarga mi CV</h3>
-          <p class="text-secondary" style="margin-bottom: 25px; font-size: 0.9rem;" data-i18n="contact.cv_desc">Obtén una visión detallada de mi trayectoria técnica y habilidades en ingeniería.</p>
-          <a href="#" class="btn-primary" style="padding: 12px 30px;" data-i18n="contact.cv_btn">Descargar CV</a>
+      <!-- ── BOTTOM SECTION ── -->
+      <div class="bottom-grid">
+        <!-- CV Card -->
+        <div class="cv-card">
+          <span class="material-symbols-outlined" style="font-size:36px;margin-bottom:12px;display:block;">description</span>
+          <h3 data-i18n="contact.cv_title">Descarga mi CV</h3>
+          <p data-i18n="contact.cv_desc">Trayectoria técnica completa y habilidades en ingeniería.</p>
+          <a href="#" class="btn-white">
+            <span class="material-symbols-outlined" style="font-size:18px;">download</span>
+            <span data-i18n="contact.cv_btn">Descargar CV</span>
+          </a>
         </div>
 
-        <!-- Social Footer Card -->
-        <div class="social-footer-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-            <div>
-              <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main);">BUG.COM<span style="font-size: 0.8rem; font-weight: 500; opacity: 0.7; margin-left: 4px;">Yair</span></h2>
-              <p class="text-secondary" style="margin-top: 10px;">+57 300 818 7157 | yair.cordoba.ing@gmail.com</p>
-            </div>
-            <div class="social-links">
-              <a href="https://github.com/yaircordobaing-debug" target="_blank" class="social-icon" title="GitHub"><span class="material-symbols-outlined">code</span></a>
-              <a href="https://linkedin.com/in/yair-cordoba" target="_blank" class="social-icon" title="LinkedIn"><span class="material-symbols-outlined">link</span></a>
-              <a href="https://codepen.io/Yair-Cordoba" target="_blank" class="social-icon" title="CodePen"><span class="material-symbols-outlined">share</span></a>
-              <a href="mailto:yair.cordoba.ing@gmail.com" class="social-icon" title="Email"><span class="material-symbols-outlined">alternate_email</span></a>
-            </div>
-          </div>
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted);">
-            <p data-i18n="contact.disclaimer">Este portafolio es una prueba de concepto de ingeniería avanzada y diseño centrado en el usuario.</p>
-          </div>
+        <!-- Brand card -->
+        <div class="contact-brand">
+          <h2>BUG.COM <span style="font-size:0.75rem;font-weight:500;opacity:0.6;">Yair</span></h2>
+          <p>+57 300 818 7157 · yair.cordoba.ing@gmail.com</p>
+          <p style="margin-top:8px;font-size:0.75rem;">Medellín, Colombia 🇨🇴 · Disponible para remoto</p>
         </div>
       </div>
 
@@ -277,8 +465,14 @@
   <script>
     document.getElementById('contact-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('¡Mensaje enviado con éxito! (Simulación)');
-      e.target.reset();
+      const btn = e.target.querySelector('.btn-submit');
+      btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px;">check_circle</span><span>¡Enviado!</span>';
+      btn.style.background = '#10b981';
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px;">send</span><span>Enviar Mensaje</span>';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
     });
   </script>
 </body>

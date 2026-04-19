@@ -4,225 +4,467 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre Mí | Yair Córdoba - Bug.com</title>
+  <meta name="description" content="Conoce a Yair Córdoba, Ingeniero de Sistemas, investigador del semillero SITEM y desarrollador de software en Medellín, Colombia.">
   <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+  <link rel="stylesheet" href="../assets/css/mobile.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <style>
+    /* ── PAGE-SPECIFIC STYLES (mobile-first) ── */
+
+    .about-hero {
+      padding: 24px 20px 32px;
+      text-align: center;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2rem, 7vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 12px 0 16px;
+      color: var(--text-main);
+    }
+
+    .about-hero p {
+      font-size: clamp(0.9rem, 3vw, 1.05rem);
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+
+    .about-hero .btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* Vision Card */
+    .vision-card {
+      background: linear-gradient(135deg, #002147 0%, #001529 100%);
+      border-radius: 24px;
+      padding: 28px 24px;
+      margin: 0 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .vision-card h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 14px 0 10px;
+    }
+
+    .vision-card p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* Skills */
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .skill-pct {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      flex-shrink: 0;
+      width: 72px;
+      text-align: center;
+    }
+
+    .skill-info h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .skill-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .skill-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(27,180,185,0.1);
+      color: var(--primary);
+      border: 1px solid rgba(27,180,185,0.2);
+    }
+
+    /* Experience card */
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+    }
+
+    .exp-card.gold::before  { background: linear-gradient(90deg, #f59e0b, transparent); }
+    .exp-card.blue::before  { background: linear-gradient(90deg, #3b82f6, transparent); }
+
+    .exp-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .exp-badge.gold { background: #fef3c7; color: #92400e; }
+    .exp-badge.blue { background: #dbeafe; color: #1e40af; }
+
+    .exp-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .exp-card p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .skill-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .skill-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Manifesto */
+    .manifesto-list { display: flex; flex-direction: column; gap: 12px; }
+    .manifesto-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .manifesto-num {
+      width: 32px; height: 32px;
+      background: rgba(27,180,185,0.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .manifesto-item span { font-size: 0.95rem; font-weight: 600; }
+
+    /* Education */
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .edu-card.blue { border-left-color: #3b82f6; }
+
+    .edu-card h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .edu-card .edu-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .edu-card p { font-size: 0.85rem; line-height: 1.6; }
+
+    /* Flow cards */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .flow-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .flow-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+    }
+
+    .flow-card h5 { font-size: 0.9rem; font-weight: 800; margin-bottom: 4px; }
+    .flow-card p  { font-size: 0.78rem; }
+
+    /* Section wrapper */
+    .about-section {
+      padding: 32px 20px;
+    }
+
+    .about-section h2 {
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .about-section .subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .stack { display: flex; flex-direction: column; gap: 14px; }
+
+    /* Desktop override */
+    @media (min-width: 769px) {
+      .about-hero { padding: 60px 40px; }
+      .about-hero .btn-row { flex-direction: row; max-width: none; justify-content: center; }
+      .vision-card { margin: 0; }
+      .about-hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+      .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+      .exp-grid   { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+      .edu-grid   { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+      .flow-grid  { grid-template-columns: repeat(4, 1fr); }
+      .about-section { max-width: 1200px; margin: 0 auto; padding: 60px 40px; }
+    }
+  </style>
 </head>
-<body data-theme="dark">
+<body>
 
   <nav-bar></nav-bar>
 
-  <main style="padding-top: 110px;">
-    
-    <!-- Hero Profile & Vision -->
-    <section class="section container fade-in-up">
-      <div class="hero-grid" style="align-items: center;">
-        <div style="flex: 1.2;">
-           <div class="badge" data-i18n="about.badge">INGENIERO & CIENTÍFICO DE DATOS</div>
-           <h1 class="hero-title">Yair Alexander <span class="text-gradient">Córdoba</span></h1>
-           <p class="hero-subtitle text-secondary" data-i18n="about.hero_desc">
-             Estudiante de Ingeniería de Sistemas en el Politécnico Grancolombiano. Fusiono la investigación académica con el desarrollo de software para crear soluciones de alto impacto.
-           </p>
-           <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-             <a href="contact.html" class="btn-primary" data-i18n="about.contact_btn">Contactar Ahora</a>
-             <a href="#experience" class="yc-link" style="font-weight: 700; color: #1bb4b9; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 1rem;"><span data-i18n="about.trajectory_link">Mi Trayectoria</span> <span class="material-symbols-outlined">arrow_downward</span></a>
-           </div>
-        </div>
-        <div style="flex: 0.8; width: 100%;">
-          <div class="glass-card" style="background: linear-gradient(135deg, var(--secondary) 0%, #001529 100%); color: white; padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);">
-             <div class="icon-wrapper" style="background: rgba(255,182,6,0.1); width: 50px; height: 50px; border-radius: 12px; margin-bottom: 20px;">
-                <span class="material-symbols-outlined" style="color: #ffb606;">rocket_launch</span>
-             </div>
-             <h3 style="color: white; margin-bottom: 15px; font-size: 1.4rem; font-weight: 800;" data-i18n="about.vision_title">Visión 2030</h3>
-             <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.7;" data-i18n="about.vision_desc">Liderar la innovación tecnológica en Colombia mediante la integración de IoT e Inteligencia Artificial aplicada a problemas sociales y empresariales.</p>
-          </div>
-        </div>
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="about-hero">
+      <div class="badge" data-i18n="about.badge">INGENIERO & CIENTÍFICO DE DATOS</div>
+      <h1>Yair Alexander <span class="text-gradient">Córdoba</span></h1>
+      <p data-i18n="about.hero_desc">
+        Estudiante de Ingeniería de Sistemas en el Politécnico Grancolombiano. Fusiono investigación académica con desarrollo de software para crear soluciones de alto impacto.
+      </p>
+      <div class="btn-row">
+        <a href="contact.html" class="btn-primary" data-i18n="about.contact_btn">Contactar Ahora</a>
+        <a href="#experience" style="display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;color:var(--primary);text-decoration:none;min-height:48px;font-size:0.95rem;">
+          <span data-i18n="about.trajectory_link">Mi Trayectoria</span>
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_downward</span>
+        </a>
       </div>
     </section>
 
-    <!-- Tech Stack (Skills Core) -->
-    <section id="tech-stack" class="section container fade-in-up">
-      <div class="section-header text-center">
-        <h2><span data-i18n="about.tech_domain_1">Dominio</span> <span class="text-gradient" data-i18n="about.tech_domain_2">Técnico</span></h2>
+    <!-- ── VISION CARD ── -->
+    <div class="vision-card fade-in-up">
+      <div style="width:44px;height:44px;background:rgba(255,182,6,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+        <span class="material-symbols-outlined" style="color:#ffb606;">rocket_launch</span>
       </div>
-      <div class="grid-3" style="gap: 25px;">
-        <!-- Data Science -->
-        <div class="glass-card hover-glow" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 25px; padding: 35px;">
-          <div class="icon-wrapper" style="background: rgba(249,115,22,0.15); width: 65px; height: 65px; border-radius: 18px; margin-bottom: 30px;">
-            <span class="material-symbols-outlined" style="color: #f97316; font-size: 36px;">insights</span>
-          </div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; color: #fff;">Data Science</h3>
-          <p style="font-size: 3rem; font-weight: 900; color: #f97316; margin-bottom: 25px; letter-spacing: -2px;">92%</p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <span class="tool-pill" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">SITEM Research</span>
-            <span class="tool-pill" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">Python</span>
-            <span class="tool-pill" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">ML Models</span>
-          </div>
-        </div>
+      <h3 data-i18n="about.vision_title">Visión 2030</h3>
+      <p data-i18n="about.vision_desc">Liderar la innovación tecnológica en Colombia mediante la integración de IoT e Inteligencia Artificial aplicada a problemas sociales y empresariales.</p>
+    </div>
 
-        <!-- Full Stack -->
-        <div class="glass-card hover-glow" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(27, 180, 185, 0.3); border-radius: 25px; padding: 35px; box-shadow: 0 0 30px rgba(27, 180, 185, 0.1);">
-          <div class="icon-wrapper" style="background: rgba(59,130,246,0.15); width: 65px; height: 65px; border-radius: 18px; margin-bottom: 30px;">
-            <span class="material-symbols-outlined" style="color: #3b82f6; font-size: 36px;">terminal</span>
-          </div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; color: #fff;">Full Stack Dev</h3>
-          <p style="font-size: 3rem; font-weight: 900; color: #3b82f6; margin-bottom: 25px; letter-spacing: -2px;">88%</p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <span class="tool-pill" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">Java</span>
-            <span class="tool-pill" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">React</span>
-            <span class="tool-pill" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">Node.js</span>
-          </div>
-        </div>
+    <!-- ── SKILLS ── -->
+    <section class="about-section fade-in-up" id="skills">
+      <h2><span data-i18n="about.tech_domain_1">Dominio</span> <span class="text-gradient" data-i18n="about.tech_domain_2">Técnico</span></h2>
+      <p class="subtitle">Áreas de especialización activa</p>
+      <div class="stack skill-grid">
 
-        <!-- IoT -->
-        <div class="glass-card hover-glow" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 25px; padding: 35px;">
-          <div class="icon-wrapper" style="background: rgba(16,185,129,0.15); width: 65px; height: 65px; border-radius: 18px; margin-bottom: 30px;">
-            <span class="material-symbols-outlined" style="color: #10b981; font-size: 36px;">memory</span>
-          </div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; color: #fff;">IoT & Hardware</h3>
-          <p style="font-size: 3rem; font-weight: 900; color: #10b981; margin-bottom: 25px; letter-spacing: -2px;">90%</p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <span class="tool-pill" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">Arduino</span>
-            <span class="tool-pill" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">C++</span>
-            <span class="tool-pill" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">IoT Cloud</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience & Leadership -->
-    <section id="experience" class="section container fade-in-up">
-      <div class="section-header">
-        <h2 class="section-title"><span data-i18n="about.exp_title_1">Experiencia</span> & <span class="text-gradient" data-i18n="about.exp_title_2">Liderazgo</span></h2>
-        <p class="text-secondary" data-i18n="about.exp_subtitle">Impacto real en proyectos de alta competencia e investigación.</p>
-      </div>
-
-      <div class="grid-2" style="gap: 30px;">
-        <!-- Colombia 5.0 -->
-        <div class="glass-card" style="background: rgba(15, 23, 42, 0.4); border-radius: 30px; padding: 40px; position: relative; border: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #f59e0b, transparent);"></div>
-          <div class="badge" style="background: #fff; color: #92400e; font-size: 0.8rem; padding: 8px 20px; border-radius: 50px; margin-bottom: 25px; font-weight: 800;" data-i18n="about.award_badge">4to PUESTO NACIONAL</div>
-          <h3 style="font-size: 1.8rem; margin-bottom: 15px; font-weight: 800; color: #fff;" data-i18n="about.colombia_title">Competencia Colombia 5.0</h3>
-          <p class="text-secondary" style="font-size: 1rem; line-height: 1.8; margin-bottom: 30px;" data-i18n="about.colombia_desc">Liderazgo del equipo en la lógica del prototipo y arquitectura de datos. Optimización de procesos bajo presión extrema en entornos de alto rendimiento.</p>
-          <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-             <div style="display: flex; align-items: center; gap: 10px; padding: 10px 18px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                <span class="material-symbols-outlined" style="color: var(--primary); font-size: 22px;">groups</span>
-                <span style="font-size: 0.9rem; font-weight: 700; color: #fff;" data-i18n="about.skill_team">Gestión de Equipo</span>
-             </div>
-             <div style="display: flex; align-items: center; gap: 10px; padding: 10px 18px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                <span class="material-symbols-outlined" style="color: var(--primary); font-size: 22px;">strategy</span>
-                <span style="font-size: 0.9rem; font-weight: 700; color: #fff;" data-i18n="about.skill_strategy">Pensamiento Estratégico</span>
-             </div>
-          </div>
-        </div>
-
-        <!-- SITEM -->
-        <div class="glass-card" style="background: rgba(15, 23, 42, 0.4); border-radius: 30px; padding: 40px; position: relative; border: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #3b82f6, transparent);"></div>
-          <div class="badge" style="background: #fff; color: #1e40af; font-size: 0.8rem; padding: 8px 20px; border-radius: 50px; margin-bottom: 25px; font-weight: 800;" data-i18n="about.research_badge">INVESTIGACIÓN ACTIVA</div>
-          <h3 style="font-size: 1.8rem; margin-bottom: 15px; font-weight: 800; color: #fff;" data-i18n="about.sitem_title">Semillero SITEM</h3>
-          <p class="text-secondary" style="font-size: 1rem; line-height: 1.8; margin-bottom: 30px;" data-i18n="about.sitem_desc">Enfoque en IoT y Tecnologías Emergentes. Integración de sensores físicos con micro-servicios en la nube y análisis avanzado de latencia de red.</p>
-          <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-             <div style="display: flex; align-items: center; gap: 10px; padding: 10px 18px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                <span class="material-symbols-outlined" style="color: var(--primary); font-size: 22px;">biotech</span>
-                <span style="font-size: 0.9rem; font-weight: 700; color: #fff;" data-i18n="about.skill_iot">Prototipado IoT</span>
-             </div>
-             <div style="display: flex; align-items: center; gap: 10px; padding: 10px 18px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                <span class="material-symbols-outlined" style="color: var(--primary); font-size: 22px;">cloud</span>
-                <span style="font-size: 0.9rem; font-weight: 700; color: #fff;" data-i18n="about.skill_cloud">Cloud Computing</span>
-             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Formation & Philosophy -->
-    <section class="section container fade-in-up">
-      <div class="section-header">
-        <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 10px;"><span data-i18n="about.phil_title_1">Formación</span> & <span class="text-gradient" data-i18n="about.phil_title_2">Filosofía</span></h2>
-        <p class="text-secondary" style="font-size: 1.1rem;" data-i18n="about.phil_subtitle">Bases académicas y valores que guían mi ingeniería.</p>
-      </div>
-
-      <div class="grid-3" style="gap: 30px; align-items: stretch;">
-        <!-- Manifesto -->
-        <div class="glass-card" style="border-radius: 30px; padding: 40px; background: linear-gradient(180deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%); border: 1px solid rgba(255,255,255,0.05);">
-          <h3 style="font-size: 1.5rem; margin-bottom: 30px; font-weight: 800; display: flex; align-items: center; gap: 12px;">
-             <span class="material-symbols-outlined" style="color: var(--primary);">verified_user</span> <span data-i18n="about.manifesto_title">Manifiesto</span>
-          </h3>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px;">
-            <li style="font-size: 1rem; display: flex; gap: 15px; align-items: center; color: #cbd5e1;">
-              <span style="width: 30px; height: 30px; background: rgba(27, 180, 185, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 800; font-size: 0.8rem;">01</span> <span data-i18n="about.manif_1">Propósito Humano</span>
-            </li>
-            <li style="font-size: 1rem; display: flex; gap: 15px; align-items: center; color: #cbd5e1;">
-              <span style="width: 30px; height: 30px; background: rgba(27, 180, 185, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 800; font-size: 0.8rem;">02</span> <span data-i18n="about.manif_2">Excelencia Técnica</span>
-            </li>
-            <li style="font-size: 1rem; display: flex; gap: 15px; align-items: center; color: #cbd5e1;">
-              <span style="width: 30px; height: 30px; background: rgba(27, 180, 185, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 800; font-size: 0.8rem;">03</span> <span data-i18n="about.manif_3">Aprendizaje Continuo</span>
-            </li>
-            <li style="font-size: 1rem; display: flex; gap: 15px; align-items: center; color: #cbd5e1;">
-              <span style="width: 30px; height: 30px; background: rgba(27, 180, 185, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 800; font-size: 0.8rem;">04</span> <span data-i18n="about.manif_4">Colaboración Radical</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Education Combined -->
-        <div class="edu-col-span" style="grid-column: span 2; display: flex; flex-direction: column; gap: 30px;">
-          <div class="grid-2" style="gap: 30px;">
-            <div class="glass-card hover-glow" style="border-left: 5px solid var(--primary); padding: 35px; border-radius: 25px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.05); border-left-width: 5px;">
-              <h4 style="font-size: 1.3rem; margin-bottom: 10px; font-weight: 800; color: #fff;" data-i18n="about.edu_title_1">Ingeniería de Sistemas</h4>
-              <p style="font-size: 0.9rem; color: var(--primary); font-weight: 800; margin-bottom: 12px; letter-spacing: 1px;">Poli Grancolombiano | 2023 - 2027</p>
-              <p style="font-size: 1rem; color: #94a3b8; line-height: 1.6;" data-i18n="about.edu_desc_1">Arquitectura de software, sistemas distribuidos y computación paralela.</p>
-            </div>
-            <div class="glass-card hover-glow" style="border-left: 5px solid #3b82f6; padding: 35px; border-radius: 25px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.05); border-left-width: 5px;">
-              <h4 style="font-size: 1.3rem; margin-bottom: 10px; font-weight: 800; color: #fff;" data-i18n="about.edu_title_2">Misión TIC 2022</h4>
-              <p style="font-size: 0.9rem; color: #3b82f6; font-weight: 800; margin-bottom: 12px; letter-spacing: 1px;">U. UTP | Ciclo Programación</p>
-              <p style="font-size: 1rem; color: #94a3b8; line-height: 1.6;" data-i18n="about.edu_desc_2">Desarrollo avanzado en Python, Java y gestión de bases de datos relacionales.</p>
-            </div>
-          </div>
-          
-          <div class="glass-card" style="padding: 25px; border-radius: 25px; background: rgba(27, 180, 185, 0.03); border: 1px solid rgba(27, 180, 185, 0.2);">
-            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px;">
-              <div style="display: flex; gap: 12px; align-items: center; font-size: 1rem; font-weight: 700; color: #fff;">
-                <span class="material-symbols-outlined" style="color: #10b981; font-size: 24px;">check_circle</span> <span data-i18n="about.cert_1">Proyectos (2025)</span>
-              </div>
-              <div style="display: flex; gap: 12px; align-items: center; font-size: 1rem; font-weight: 700; color: #fff;">
-                <span class="material-symbols-outlined" style="color: #10b981; font-size: 24px;">check_circle</span> <span data-i18n="about.cert_2">Metodología (2020)</span>
-              </div>
-              <div style="display: flex; gap: 12px; align-items: center; font-size: 1rem; font-weight: 700; color: #fff;">
-                <span class="material-symbols-outlined" style="color: #10b981; font-size: 24px;">check_circle</span> <span data-i18n="about.cert_3">Móvil (2021)</span>
-              </div>
+        <div class="skill-card">
+          <div class="skill-pct" style="color:#f97316;">92%</div>
+          <div class="skill-info">
+            <h3>Data Science</h3>
+            <div class="skill-pills">
+              <span class="skill-pill">SITEM</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">ML</span>
             </div>
           </div>
         </div>
+
+        <div class="skill-card">
+          <div class="skill-pct" style="color:#3b82f6;">88%</div>
+          <div class="skill-info">
+            <h3>Full Stack</h3>
+            <div class="skill-pills">
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">React</span>
+              <span class="skill-pill">Node</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-pct" style="color:#10b981;">90%</div>
+          <div class="skill-info">
+            <h3>IoT & Hardware</h3>
+            <div class="skill-pills">
+              <span class="skill-pill">Arduino</span>
+              <span class="skill-pill">C++</span>
+              <span class="skill-pill">Cloud</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Detrás del Monitor (Refined) -->
-    <section class="section container fade-in-up" style="margin-bottom: 80px;">
-      <div style="text-align: center; margin-bottom: 50px;">
-        <h3 style="font-size: 2.2rem; font-weight: 800;"><span data-i18n="about.behind_title_1">Detrás del</span> <span class="text-gradient" data-i18n="about.behind_title_2">Monitor</span></h3>
-        <p class="text-secondary" style="font-size: 1.1rem;" data-i18n="about.behind_subtitle">Optimización personal y flow state.</p>
+    <!-- ── EXPERIENCE ── -->
+    <section class="about-section fade-in-up" id="experience">
+      <h2><span data-i18n="about.exp_title_1">Experiencia</span> & <span class="text-gradient" data-i18n="about.exp_title_2">Liderazgo</span></h2>
+      <p class="subtitle" data-i18n="about.exp_subtitle">Impacto real en proyectos de alta competencia.</p>
+      <div class="stack exp-grid">
+
+        <div class="exp-card gold">
+          <span class="exp-badge gold" data-i18n="about.award_badge">4to PUESTO NACIONAL</span>
+          <h3 data-i18n="about.colombia_title">Colombia 5.0</h3>
+          <p data-i18n="about.colombia_desc">Liderazgo del equipo en la lógica del prototipo y arquitectura de datos. Optimización bajo presión extrema.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">
+              <span class="material-symbols-outlined" style="font-size:16px;color:var(--primary);">groups</span>
+              <span data-i18n="about.skill_team">Equipo</span>
+            </span>
+            <span class="skill-tag">
+              <span class="material-symbols-outlined" style="font-size:16px;color:var(--primary);">strategy</span>
+              <span data-i18n="about.skill_strategy">Estrategia</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="exp-card blue">
+          <span class="exp-badge blue" data-i18n="about.research_badge">INVESTIGACIÓN ACTIVA</span>
+          <h3 data-i18n="about.sitem_title">Semillero SITEM</h3>
+          <p data-i18n="about.sitem_desc">Enfoque en IoT y Tecnologías Emergentes. Integración de sensores físicos con micro-servicios en la nube.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">
+              <span class="material-symbols-outlined" style="font-size:16px;color:var(--primary);">biotech</span>
+              <span data-i18n="about.skill_iot">IoT</span>
+            </span>
+            <span class="skill-tag">
+              <span class="material-symbols-outlined" style="font-size:16px;color:var(--primary);">cloud</span>
+              <span data-i18n="about.skill_cloud">Cloud</span>
+            </span>
+          </div>
+        </div>
+
       </div>
-      
-      <div class="grid-4" style="gap: 20px;">
-        <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05);">
-          <div class="icon-wrapper" style="background: rgba(59,130,246,0.1); width: 60px; height: 60px; border-radius: 50%; margin-bottom: 20px;"><span class="material-symbols-outlined" style="color: #3b82f6; font-size: 30px;">headphones</span></div>
-          <h5 style="font-size: 1.1rem; margin-bottom: 8px; font-weight: 800; color: #fff;">Lofi State</h5>
-          <p style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="about.flow_1">Flow constante.</p>
+    </section>
+
+    <!-- ── MANIFESTO ── -->
+    <section class="about-section fade-in-up">
+      <h2>Mi <span class="text-gradient" data-i18n="about.manifesto_title">Manifiesto</span></h2>
+      <p class="subtitle">Valores que guían cada línea de código</p>
+      <div class="manifesto-list">
+        <div class="manifesto-item"><div class="manifesto-num">01</div><span data-i18n="about.manif_1">Propósito Humano</span></div>
+        <div class="manifesto-item"><div class="manifesto-num">02</div><span data-i18n="about.manif_2">Excelencia Técnica</span></div>
+        <div class="manifesto-item"><div class="manifesto-num">03</div><span data-i18n="about.manif_3">Aprendizaje Continuo</span></div>
+        <div class="manifesto-item"><div class="manifesto-num">04</div><span data-i18n="about.manif_4">Colaboración Radical</span></div>
+      </div>
+    </section>
+
+    <!-- ── FORMACIÓN ── -->
+    <section class="about-section fade-in-up">
+      <h2><span data-i18n="about.phil_title_1">Formación</span> & <span class="text-gradient" data-i18n="about.phil_title_2">Filosofía</span></h2>
+      <p class="subtitle" data-i18n="about.phil_subtitle">Bases académicas sólidas</p>
+      <div class="stack edu-grid">
+
+        <div class="edu-card">
+          <h4 data-i18n="about.edu_title_1">Ingeniería de Sistemas</h4>
+          <p class="edu-sub" style="color:var(--primary);">Poli Grancolombiano · 2023–2027</p>
+          <p data-i18n="about.edu_desc_1">Arquitectura de software, sistemas distribuidos y computación paralela.</p>
         </div>
-        <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05);">
-          <div class="icon-wrapper" style="background: rgba(249,115,22,0.1); width: 60px; height: 60px; border-radius: 50%; margin-bottom: 20px;"><span class="material-symbols-outlined" style="color: #f97316; font-size: 30px;">coffee</span></div>
-          <h5 style="font-size: 1.1rem; margin-bottom: 8px; font-weight: 800; color: #fff;">Vital Café</h5>
-          <p style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="about.flow_2">Motor creativo.</p>
+
+        <div class="edu-card blue">
+          <h4 data-i18n="about.edu_title_2">Misión TIC 2022</h4>
+          <p class="edu-sub" style="color:#3b82f6;">U. UTP · Ciclo Programación</p>
+          <p data-i18n="about.edu_desc_2">Python, Java y gestión de bases de datos relacionales.</p>
         </div>
-        <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05);">
-          <div class="icon-wrapper" style="background: rgba(16,185,129,0.1); width: 60px; height: 60px; border-radius: 50%; margin-bottom: 20px;"><span class="material-symbols-outlined" style="color: #10b981; font-size: 30px;">dns</span></div>
-          <h5 style="font-size: 1.1rem; margin-bottom: 8px; font-weight: 800; color: #fff;">Inmersión</h5>
-          <p style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="about.flow_3">Lab & Cloud.</p>
+
+      </div>
+
+      <!-- Certifications -->
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;">
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;font-size:0.85rem;font-weight:700;">
+          <span class="material-symbols-outlined" style="color:#10b981;font-size:18px;">check_circle</span>
+          <span data-i18n="about.cert_1">Proyectos (2025)</span>
         </div>
-        <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05);">
-          <div class="icon-wrapper" style="background: rgba(59,130,246,0.1); width: 60px; height: 60px; border-radius: 50%; margin-bottom: 20px;"><span class="material-symbols-outlined" style="color: #3b82f6; font-size: 30px;">bed</span></div>
-          <h5 style="font-size: 1.1rem; margin-bottom: 8px; font-weight: 800; color: #fff;">Recarga</h5>
-          <p style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="about.flow_4">Reset mental.</p>
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;font-size:0.85rem;font-weight:700;">
+          <span class="material-symbols-outlined" style="color:#10b981;font-size:18px;">check_circle</span>
+          <span data-i18n="about.cert_2">Metodología (2020)</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;font-size:0.85rem;font-weight:700;">
+          <span class="material-symbols-outlined" style="color:#10b981;font-size:18px;">check_circle</span>
+          <span data-i18n="about.cert_3">Móvil (2021)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DETRÁS DEL MONITOR ── -->
+    <section class="about-section fade-in-up" style="padding-bottom:40px;">
+      <h2><span data-i18n="about.behind_title_1">Detrás del</span> <span class="text-gradient" data-i18n="about.behind_title_2">Monitor</span></h2>
+      <p class="subtitle" data-i18n="about.behind_subtitle">Optimización personal y flow state</p>
+      <div class="flow-grid">
+        <div class="flow-card">
+          <div class="flow-icon" style="background:rgba(59,130,246,0.1);">
+            <span class="material-symbols-outlined" style="color:#3b82f6;">headphones</span>
+          </div>
+          <h5>Lofi State</h5>
+          <p data-i18n="about.flow_1">Flow constante.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-icon" style="background:rgba(249,115,22,0.1);">
+            <span class="material-symbols-outlined" style="color:#f97316;">coffee</span>
+          </div>
+          <h5>Vital Café</h5>
+          <p data-i18n="about.flow_2">Motor creativo.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-icon" style="background:rgba(16,185,129,0.1);">
+            <span class="material-symbols-outlined" style="color:#10b981;">dns</span>
+          </div>
+          <h5>Inmersión</h5>
+          <p data-i18n="about.flow_3">Lab & Cloud.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-icon" style="background:rgba(59,130,246,0.1);">
+            <span class="material-symbols-outlined" style="color:#3b82f6;">bed</span>
+          </div>
+          <h5>Recarga</h5>
+          <p data-i18n="about.flow_4">Reset mental.</p>
         </div>
       </div>
     </section>
@@ -230,12 +472,6 @@
   </main>
 
   <footer-bar></footer-bar>
-
-  <style>
-    @media (max-width: 992px) {
-      .edu-col-span { grid-column: span 1 !important; }
-    }
-  </style>
 
   <script src="../assets/js/i18n.js"></script>
   <script src="../assets/js/data.js"></script>
