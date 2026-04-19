@@ -1,0 +1,576 @@
+/* ============================================================
+   BUG.COM — MOBILE APP STYLESHEET
+   Breakpoints: 480px | 768px | 992px
+   Strategy: Progressive Enhancement (Mobile → Desktop)
+   ============================================================ */
+
+/* ─── 1. FLUID TYPOGRAPHY (scales smoothly with viewport) ─── */
+:root {
+  --fs-xs:   clamp(0.7rem,  2vw, 0.8rem);
+  --fs-sm:   clamp(0.8rem,  2.5vw, 0.9rem);
+  --fs-base: clamp(0.9rem,  3vw,   1rem);
+  --fs-md:   clamp(1rem,    3.5vw, 1.15rem);
+  --fs-lg:   clamp(1.1rem,  4vw,   1.4rem);
+  --fs-xl:   clamp(1.4rem,  5vw,   2rem);
+  --fs-2xl:  clamp(1.8rem,  6vw,   2.8rem);
+  --fs-hero: clamp(2rem,    8vw,   3.5rem);
+
+  /* Spacing tokens */
+  --sp-xs: clamp(6px,  1.5vw, 10px);
+  --sp-sm: clamp(10px, 2vw,  16px);
+  --sp-md: clamp(16px, 3vw,  24px);
+  --sp-lg: clamp(24px, 4vw,  40px);
+  --sp-xl: clamp(40px, 6vw,  80px);
+
+  /* Touch targets — minimum 44x44px per WCAG */
+  --tap-target: 48px;
+
+  /* App-like safe areas */
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top:    env(safe-area-inset-top, 0px);
+
+  /* Nav */
+  --mobile-nav-height: 64px;
+  --bottom-nav-height: 64px;
+
+  /* Spring transitions */
+  --spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── 2. BASE RESETS FOR TOUCH ──────────────────────────── */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+}
+
+/* Remove tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Allow text selection */
+p, h1, h2, h3, h4, span, a { -webkit-user-select: text; user-select: text; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ─── 3. MOBILE BOTTOM NAVIGATION (app pattern) ─────────── */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--bottom-nav-height) + var(--safe-bottom));
+  background: var(--nav-bg);
+  border-top: 1px solid var(--border);
+  z-index: 9998;
+  padding-bottom: var(--safe-bottom);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.mobile-bottom-nav .nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: var(--bottom-nav-height);
+  padding: 0 8px;
+}
+
+.mobile-bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border-radius: 12px;
+  padding: 6px 12px;
+  transition: all 0.2s var(--ease-out);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+.mobile-bottom-nav .nav-item span.material-symbols-outlined {
+  font-size: 22px;
+  transition: transform 0.2s var(--spring);
+}
+
+.mobile-bottom-nav .nav-item.active {
+  color: var(--primary);
+}
+
+.mobile-bottom-nav .nav-item.active span.material-symbols-outlined {
+  transform: scale(1.15);
+}
+
+.mobile-bottom-nav .nav-item:active {
+  transform: scale(0.9);
+}
+
+/* ─── 4. MAIN CONTENT PADDING for bottom nav ─────────────── */
+@media (max-width: 768px) {
+  .mobile-bottom-nav { display: flex; flex-direction: column; }
+  
+  body {
+    padding-bottom: calc(var(--bottom-nav-height) + var(--safe-bottom));
+  }
+
+  main {
+    padding-top: calc(var(--mobile-nav-height) + var(--safe-top)) !important;
+    min-height: 100dvh;
+  }
+}
+
+/* ─── 5. HERO SECTION — App Landing Feel ─────────────────── */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: var(--sp-lg) 0 var(--sp-lg) !important;
+    text-align: center;
+  }
+
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: var(--sp-lg);
+    align-items: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: var(--fs-hero) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.5px;
+    word-break: normal !important;
+    overflow-wrap: break-word;
+    margin-bottom: var(--sp-md) !important;
+  }
+
+  .hero-subtitle {
+    font-size: var(--fs-base) !important;
+    max-width: 100% !important;
+    margin-bottom: var(--sp-md) !important;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .hero-image-container {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  /* CTA Buttons — stacked, app-style */
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Badges */
+  .badge {
+    font-size: var(--fs-xs) !important;
+    padding: 6px 14px !important;
+    margin-bottom: var(--sp-sm) !important;
+  }
+}
+
+/* ─── 6. BUTTONS — Touch-Optimized ───────────────────────── */
+@media (max-width: 768px) {
+  .btn-primary {
+    min-height: var(--tap-target) !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: var(--fs-base) !important;
+    padding: 14px 24px !important;
+    border-radius: 16px !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.15s var(--spring), box-shadow 0.15s ease !important;
+  }
+
+  .btn-primary:active {
+    transform: scale(0.96) !important;
+    box-shadow: 0 2px 8px rgba(27, 180, 185, 0.4) !important;
+  }
+
+  .yc-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: var(--tap-target) !important;
+    font-size: var(--fs-base) !important;
+    width: 100% !important;
+  }
+}
+
+/* ─── 7. CARDS — App-Style Touch Cards ───────────────────── */
+@media (max-width: 768px) {
+  .glass-card {
+    border-radius: 20px !important;
+    padding: var(--sp-md) !important;
+    transition: transform 0.15s var(--spring) !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+  }
+
+  .glass-card:active {
+    transform: scale(0.98) !important;
+  }
+
+  /* Disable desktop hover lift on mobile */
+  .glass-card:hover {
+    transform: none !important;
+  }
+
+  .project-feature-card {
+    padding: var(--sp-md) !important;
+    border-radius: 20px !important;
+    min-height: auto !important;
+  }
+
+  .project-feature-card:hover {
+    transform: none !important;
+  }
+
+  .project-feature-card:active {
+    transform: scale(0.98) !important;
+  }
+
+  .p-title { font-size: var(--fs-lg) !important; }
+  .p-desc  { font-size: var(--fs-sm) !important; margin-bottom: var(--sp-md) !important; }
+
+  .btn-lean {
+    padding: 14px !important;
+    font-size: var(--fs-sm) !important;
+    border-radius: 14px !important;
+  }
+}
+
+/* ─── 8. GRIDS — Single Column Mobile ────────────────────── */
+@media (max-width: 768px) {
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--sp-md) !important;
+  }
+}
+
+/* ─── 9. TYPOGRAPHY — Fluid Scale ────────────────────────── */
+@media (max-width: 768px) {
+  h1 { font-size: var(--fs-xl) !important; line-height: 1.15 !important; }
+  h2 { font-size: var(--fs-lg) !important; line-height: 1.2  !important; }
+  h3 { font-size: var(--fs-md) !important; line-height: 1.3  !important; }
+  h4 { font-size: var(--fs-base) !important; }
+  p  { font-size: var(--fs-sm) !important; }
+
+  .section-title { font-size: var(--fs-xl) !important; }
+  .section-header { margin-bottom: var(--sp-md) !important; }
+  .section { padding: var(--sp-lg) 0 !important; }
+  .container { padding: 0 var(--sp-md) !important; }
+}
+
+/* ─── 10. STATS BAR — 2x2 Grid ───────────────────────────── */
+@media (max-width: 768px) {
+  .stats-bar {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--sp-sm) !important;
+    padding: var(--sp-md) !important;
+    border-radius: 20px !important;
+    margin-top: var(--sp-md) !important;
+  }
+
+  .stats-bar h3 { font-size: var(--fs-lg) !important; }
+  .stats-bar p  { font-size: var(--fs-xs) !important; }
+}
+
+/* ─── 11. SECTION HEADERS with action link ────────────────── */
+@media (max-width: 768px) {
+  .projects-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--sp-sm) !important;
+    margin-bottom: var(--sp-md) !important;
+  }
+}
+
+/* ─── 12. MINDSET / PHILOSOPHY SECTION ───────────────────── */
+@media (max-width: 768px) {
+  .mindset-card {
+    padding: var(--sp-md) !important;
+    border-radius: 20px !important;
+  }
+
+  .mindset-content {
+    padding-left: 0 !important;
+    margin-top: var(--sp-md) !important;
+  }
+
+  .hero-grid[style*="align-items: center"] {
+    flex-direction: column !important;
+  }
+}
+
+/* ─── 13. CONTACT PAGE ────────────────────────────────────── */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    border-radius: 24px !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-info-side,
+  .contact-form-side {
+    padding: var(--sp-lg) var(--sp-md) !important;
+  }
+
+  .contact-form-side {
+    border-left: none !important;
+    border-top: 1px solid var(--border) !important;
+  }
+
+  .info-items-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--sp-sm) !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bottom-cta-grid {
+    grid-template-columns: 1fr !important;
+    margin-top: var(--sp-md) !important;
+  }
+
+  .cta-card, .social-footer-card {
+    border-radius: 20px !important;
+    padding: var(--sp-md) !important;
+  }
+
+  .social-links {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+}
+
+/* ─── 14. ABOUT PAGE ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .edu-col-span {
+    grid-column: span 1 !important;
+  }
+
+  .hover-glow:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ─── 15. BLOG CATEGORY FILTER — Horizontal Scroll ──────── */
+@media (max-width: 768px) {
+  .category-filter {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    justify-content: flex-start !important;
+    border-radius: 16px !important;
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+
+  .category-filter::-webkit-scrollbar { display: none; }
+
+  .tool-pill {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    min-height: 36px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 6px 14px !important;
+    font-size: var(--fs-xs) !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* ─── 16. NAVBAR MOBILE ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .yc-nav {
+    padding: 8px 0 !important;
+  }
+
+  .yc-container {
+    padding: 0 var(--sp-md) !important;
+  }
+
+  .yc-logo {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* ─── 17. SCROLL SNAPPING for project grids (app swipe feel) */
+@media (max-width: 480px) {
+  /* Project cards subtle entrance */
+  .project-feature-card {
+    animation: cardSlideIn 0.4s var(--ease-out) both;
+  }
+
+  @keyframes cardSlideIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ─── 18. ENGINEERING PAGE ────────────────────────────────── */
+@media (max-width: 768px) {
+  .method-card {
+    padding: var(--sp-md) !important;
+    border-radius: 20px !important;
+  }
+
+  .method-steps {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--sp-sm) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .method-steps {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── 19. FOOTER — Compact Mobile ────────────────────────── */
+@media (max-width: 768px) {
+  .yc-footer {
+    padding: var(--sp-lg) 0 calc(var(--sp-xl) + var(--bottom-nav-height)) !important;
+    margin-top: var(--sp-xl) !important;
+  }
+
+  .yc-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--sp-lg) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .yc-footer-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .yc-footer ul {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+}
+
+/* ─── 20. FADE ANIMATIONS — reduced motion support ───────── */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .project-feature-card,
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─── 21. PULL-TO-REFRESH indicator layer ────────────────── */
+@media (max-width: 768px) {
+  body { overscroll-behavior-y: contain; }
+}
+
+/* ─── 22. TEXT CENTERING for mobile hero ─────────────────── */
+@media (max-width: 768px) {
+  .text-center-mobile { text-align: center !important; }
+  .hero-content .badge { margin-left: auto; margin-right: auto; }
+}
+
+/* ─── 23. IMAGE CONTAINERS — Responsive ──────────────────── */
+@media (max-width: 768px) {
+  .hero-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 24px !important;
+  }
+
+  /* Float badges on hero image */
+  .hero-image-container {
+    position: relative !important;
+    width: 100% !important;
+  }
+}
+
+/* ─── 24. PROJECT DETAIL PAGE ────────────────────────────── */
+@media (max-width: 768px) {
+  .project-detail-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--sp-md) !important;
+  }
+
+  .project-sidebar {
+    order: 2 !important;
+  }
+
+  .project-main-content {
+    order: 1 !important;
+  }
+
+  .project-tabs {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    scrollbar-width: none !important;
+  }
+
+  .project-tabs::-webkit-scrollbar { display: none; }
+}
+
+/* ─── 25. ICON SIZES — Mobile Optimized ──────────────────── */
+@media (max-width: 768px) {
+  .icon-wrapper {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    margin-bottom: var(--sp-sm) !important;
+  }
+
+  .material-symbols-outlined {
+    font-size: 20px;
+  }
+}

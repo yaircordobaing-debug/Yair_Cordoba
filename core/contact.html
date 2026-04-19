@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Yair Córdoba - Bug.com</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <style>
+    :root {
+      --contact-bg: #0a0f18;
+      --input-bg: rgba(255, 255, 255, 0.05);
+      --accent-color: #1bb4b9;
+    }
+
+    .contact-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    }
+
+    .contact-info-side {
+      padding: 60px;
+      background: linear-gradient(135deg, rgba(27, 180, 185, 0.05) 0%, transparent 100%);
+    }
+
+    .contact-form-side {
+      padding: 60px;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 1px solid var(--border);
+    }
+
+    .info-item {
+      margin-bottom: 40px;
+    }
+    .info-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .info-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .info-item a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .form-control {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: var(--text-main);
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 15px rgba(27, 180, 185, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-submit:hover {
+      background: #15a0a5;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(27, 180, 185, 0.3);
+    }
+
+    .bottom-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .cta-card {
+      background: var(--bg-card);
+      border-radius: 30px;
+      padding: 40px;
+      border: 1px solid rgba(27, 180, 185, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .social-footer-card {
+      background: var(--bg-card);
+      border-radius: 30px;
+      padding: 40px;
+      border: 1px solid var(--border);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .social-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+    }
+    .social-icon:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 992px) {
+      .contact-wrapper { grid-template-columns: 1fr; border-radius: 25px; }
+      .contact-info-side, .contact-form-side { padding: 40px 30px; }
+      .contact-form-side { border-left: none; border-top: 1px solid var(--border); }
+      .bottom-cta-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.2rem !important; }
+      .form-row { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav-bar></nav-bar>
+
+  <main style="padding-top: 120px; padding-bottom: 80px;">
+    <div class="container">
+      
+      <div class="contact-wrapper fade-in-up">
+        <!-- Left Side: Info -->
+        <div class="contact-info-side">
+          <h1 class="hero-title" data-i18n="contact.get_in_touch">Ponte en <span class="text-gradient">contacto</span></h1>
+          <p class="hero-subtitle text-secondary" data-i18n="contact.form_intro">
+            ¿Tienes alguna pregunta, comentario o simplemente quieres saludar? Me encantaría saber de ti y conectar con la comunidad técnica.
+          </p>
+
+          <div class="grid-2 info-items-grid">
+            <div class="info-item">
+              <h4 data-i18n="contact.chat_label">Chatéame</h4>
+              <p data-i18n="contact.chat_desc">Estoy aquí para ayudarte.</p>
+              <a href="mailto:yair.cordoba.ing@gmail.com">yair.cordoba.ing@gmail.com</a>
+            </div>
+
+            <div class="info-item">
+              <h4 data-i18n="contact.call_label">Llámame</h4>
+              <p data-i18n="contact.call_desc">Lunes a Viernes 9am-6pm.</p>
+              <a href="tel:+573008187157">+57 300 818 7157</a>
+            </div>
+
+            <div class="info-item">
+              <h4 data-i18n="contact.visit_label">Visítame</h4>
+              <p data-i18n="contact.visit_desc">Disponible para remoto.</p>
+              <a href="#">Medellín, Colombia</a>
+            </div>
+
+            <div class="info-item">
+              <h4 data-i18n="contact.social_label">Social</h4>
+              <p data-i18n="contact.social_desc">Conectemos profesionalmente.</p>
+              <a href="https://linkedin.com/in/yair-cordoba">LinkedIn Profile</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Form -->
+        <div class="contact-form-side">
+          <form id="contact-form">
+            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div class="form-group">
+                <label for="name" data-i18n="contact.name_field">Nombre*</label>
+                <input type="text" id="name" class="form-control" placeholder="Tu nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="last_name" data-i18n="contact.lastname_field">Apellido*</label>
+                <input type="text" id="last_name" class="form-control" placeholder="Tu apellido" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" data-i18n="contact.email_field">Email*</label>
+              <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message" data-i18n="contact.message_field">Tu mensaje*</label>
+              <textarea id="message" class="form-control" placeholder="¿En qué puedo ayudarte?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" data-i18n="contact.send_btn">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Grid Section -->
+      <div class="bottom-cta-grid fade-in-up">
+        <!-- Download/CTA Card -->
+        <div class="cta-card">
+          <h3 style="font-size: 1.5rem; margin-bottom: 15px;" data-i18n="contact.cv_title">Potencia tu equipo: Descarga mi CV</h3>
+          <p class="text-secondary" style="margin-bottom: 25px; font-size: 0.9rem;" data-i18n="contact.cv_desc">Obtén una visión detallada de mi trayectoria técnica y habilidades en ingeniería.</p>
+          <a href="#" class="btn-primary" style="padding: 12px 30px;" data-i18n="contact.cv_btn">Descargar CV</a>
+        </div>
+
+        <!-- Social Footer Card -->
+        <div class="social-footer-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main);">BUG.COM<span style="font-size: 0.8rem; font-weight: 500; opacity: 0.7; margin-left: 4px;">Yair</span></h2>
+              <p class="text-secondary" style="margin-top: 10px;">+57 300 818 7157 | yair.cordoba.ing@gmail.com</p>
+            </div>
+            <div class="social-links">
+              <a href="https://github.com/yaircordobaing-debug" target="_blank" class="social-icon" title="GitHub"><span class="material-symbols-outlined">code</span></a>
+              <a href="https://linkedin.com/in/yair-cordoba" target="_blank" class="social-icon" title="LinkedIn"><span class="material-symbols-outlined">link</span></a>
+              <a href="https://codepen.io/Yair-Cordoba" target="_blank" class="social-icon" title="CodePen"><span class="material-symbols-outlined">share</span></a>
+              <a href="mailto:yair.cordoba.ing@gmail.com" class="social-icon" title="Email"><span class="material-symbols-outlined">alternate_email</span></a>
+            </div>
+          </div>
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted);">
+            <p data-i18n="contact.disclaimer">Este portafolio es una prueba de concepto de ingeniería avanzada y diseño centrado en el usuario.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer-bar></footer-bar>
+
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('¡Mensaje enviado con éxito! (Simulación)');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

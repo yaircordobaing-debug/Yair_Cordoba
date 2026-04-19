@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingeniería & Pensamiento | Yair Córdoba - Bug.com</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+  <nav-bar></nav-bar>
+
+  <main style="padding-top: 130px;">
+    
+    <!-- 1. Narrative Intro -->
+    <section class="section container fade-in-up" style="padding-bottom: 30px;">
+      <div class="section-header text-center" style="max-width: 850px; margin: 0 auto 30px;">
+        <div class="badge" data-i18n="eng.badge">EPISTEMOLOGÍA TÉCNICA</div>
+        <h1 class="hero-title" style="font-size: 3.2rem; margin-bottom: 15px;"><span data-i18n="eng.title_1">El Arte de</span> <span class="text-gradient" data-i18n="eng.title_2">Construir</span></h1>
+        <p class="text-secondary" style="font-size: 1.15rem; line-height: 1.6;" data-i18n="eng.subtitle">
+          La ingeniería no es un destino, es un proceso continuo de análisis, diseño y optimización. Aquí resumo mi camino desde la investigación hasta la implementación real.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. The Process Flow -->
+    <section class="section bg-grid fade-in-up" style="background-color: var(--bg-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 50px 0;">
+      <div class="container">
+        <div class="hero-grid" style="align-items: center; gap: 40px;">
+           <div class="method-card" style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-md);">
+              <h2 style="margin-bottom: 20px;"><span data-i18n="eng.method_1">Mi</span> <span class="text-gradient" data-i18n="eng.method_2">Metodología</span></h2>
+              <p class="text-secondary" style="font-style: italic; font-size: 1.2rem; margin-bottom: 30px;" data-i18n="eng.quote">"No empiezo programando... empiezo entendiendo."</p>
+              
+              <div class="method-steps" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="display: flex; gap: 10px;">
+                  <span class="material-symbols-outlined" style="color: #ffb606;">psychology_alt</span>
+                  <div><strong data-i18n="eng.step1_title">Análisis</strong><p style="font-size: 0.75rem;" data-i18n="eng.step1_desc">Fricción y Negocio.</p></div>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                  <span class="material-symbols-outlined" style="color: #3b82f6;">schema</span>
+                  <div><strong data-i18n="eng.step2_title">Variables</strong><p style="font-size: 0.75rem;" data-i18n="eng.step2_desc">Datos y Límites.</p></div>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                  <span class="material-symbols-outlined" style="color: #1bb4b9;">architecture</span>
+                  <div><strong data-i18n="eng.step3_title">Modelado</strong><p style="font-size: 0.75rem;" data-i18n="eng.step3_desc">Lógica y Flujo.</p></div>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                  <span class="material-symbols-outlined" style="color: #10b981;">terminal</span>
+                  <div><strong data-i18n="eng.step4_title">Código</strong><p style="font-size: 0.75rem;" data-i18n="eng.step4_desc">Sintaxis Limpia.</p></div>
+                </div>
+              </div>
+           </div>
+           <div>
+             <h3 style="font-size: 1.8rem; margin-bottom: 15px;" data-i18n="eng.resilient_title">Diseño de Sistemas Resilientes</h3>
+             <p class="text-secondary" style="margin-bottom: 20px;" data-i18n="eng.resilient_desc">Cada solución que desarrollo pasa por un filtro de escalabilidad y mantenibilidad. No busco el camino más corto, sino el más sólido.</p>
+             <div class="glass-card" style="padding: 15px; display: flex; align-items: center; gap: 15px;">
+                <span class="material-symbols-outlined" style="color: var(--primary);">verified_user</span>
+                <span style="font-weight: 700; font-size: 0.9rem;" data-i18n="eng.qa_focus">QA & Optimization Focus</span>
+             </div>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      @media (max-width: 480px) {
+        .method-steps { grid-template-columns: 1fr !important; }
+        .method-card { padding: 30px 20px !important; }
+      }
+    </style>
+
+    <!-- 3. Notas (Gallery) -->
+    <section class="section container fade-in-up" style="padding-top: 60px;">
+      <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <h2 style="font-size: 2.2rem;"><span data-i18n="eng.gallery_title_1">Galería de</span> <span class="text-gradient" data-i18n="eng.gallery_title_2">Notas Técnicas</span></h2>
+          <p class="text-secondary" data-i18n="eng.gallery_subtitle">Conocimiento destilado de investigaciones reales.</p>
+        </div>
+        <span class="badge" data-i18n="eng.gallery_badge">3 APUNTES RECIENTES</span>
+      </div>
+      <div class="grid-3" style="gap: 20px;">
+        <div class="glass-card" style="padding: 25px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <span class="tool-pill" style="color: #1bb4b9; border-color: #1bb4b9;">SITEM</span>
+            <span style="font-size: 0.7rem; font-weight: 800; color: var(--text-muted);">NOT-001</span>
+          </div>
+          <h4 style="margin-bottom: 10px;" data-i18n="eng.not1_title">Optimización RFID</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 20px;" data-i18n="eng.not1_desc">Reducción de latencia en lectura de tags mediante gestión de hilos en Java.</p>
+          <a href="#" class="yc-link" style="font-weight: 700; font-size: 0.85rem;" data-i18n="eng.view_snippet">Ver Snippet →</a>
+        </div>
+
+        <div class="glass-card" style="padding: 25px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <span class="tool-pill" style="color: #3b82f6; border-color: #3b82f6;">CLEAN CODE</span>
+            <span style="font-size: 0.7rem; font-weight: 800; color: var(--text-muted);">NOT-002</span>
+          </div>
+          <h4 style="margin-bottom: 10px;" data-i18n="eng.not2_title">Java Patterns</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 20px;" data-i18n="eng.not2_desc">Implementación de Factory Pattern para gestión de múltiples bases de datos.</p>
+          <a href="#" class="yc-link" style="font-weight: 700; font-size: 0.85rem;" data-i18n="eng.view_snippet">Ver Snippet →</a>
+        </div>
+
+        <div class="glass-card" style="padding: 25px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <span class="tool-pill" style="color: #f97316; border-color: #f97316;">IA</span>
+            <span style="font-size: 0.7rem; font-weight: 800; color: var(--text-muted);">NOT-003</span>
+          </div>
+          <h4 style="margin-bottom: 10px;" data-i18n="eng.not3_title">IoT Predictivo</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 20px;" data-i18n="eng.not3_desc">Limpieza de ruidos en señales analógicas para modelos de regresión.</p>
+          <a href="#" class="yc-link" style="font-weight: 700; font-size: 0.85rem;" data-i18n="eng.view_snippet">Ver Snippet →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Pensamientos (Future) -->
+    <section class="section container fade-in-up" style="margin-bottom: 60px;">
+      <div style="background: var(--secondary); color: white; border-radius: 30px; padding: 50px; position: relative; overflow: hidden;">
+        <div style="position: absolute; right: -50px; top: -50px; width: 300px; height: 300px; background: var(--primary); opacity: 0.1; border-radius: 50%;"></div>
+        <div style="position: relative; z-index: 1; max-width: 700px;">
+          <h2 style="color: white; margin-bottom: 20px; font-size: 2rem;"><span data-i18n="eng.future_title_1">Pensamientos sobre el</span> <span class="text-gradient" style="filter: brightness(1.5);" data-i18n="eng.future_title_2">Futuro</span></h2>
+          <p style="font-style: italic; font-size: 1.2rem; line-height: 1.8; margin-bottom: 25px; border-left: 3px solid #ffb606; padding-left: 20px;" data-i18n="eng.future_quote">
+            "Visualizo una ingeniería donde la IA no reemplaza al ingeniero, sino que eleva su capacidad de abstracción. El futuro será de quienes sepan modelar realidades complejas."
+          </p>
+          <p style="color: #94a3b8; font-size: 1rem;" data-i18n="eng.future_desc">
+            Actualmente investigo la autogestión de eficiencia energética en sistemas distribuidos, integrando la ética como un parámetro de diseño fundamental.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer-bar></footer-bar>
+
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
