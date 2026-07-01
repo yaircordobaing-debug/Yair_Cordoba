@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Yair Córdoba</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <div data-include="header"></div>
+
+    <main>
+        <div class="contact-page">
+    
+          <!-- ── HERO ── -->
+          <div class="contact-hero">
+            <div class="badge" data-i18n="contact.badge">HABLEMOS</div>
+            <h1>Ponte en <span class="text-gradient">Contacto</span></h1>
+            <p data-i18n="contact.form_intro">¿Tienes un proyecto, idea o simplemente quieres conectar? Estoy disponible para colaboraciones técnicas y oportunidades profesionales.</p>
+          </div>
+    
+          <!-- ── MAIN GRID (stacks on mobile) ── -->
+          <div class="contact-main-grid">
+    
+            <!-- Left: Info -->
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-icon">
+                    <span class="material-symbols-outlined" style="color:var(--primary);font-size:24px;">alternate_email</span>
+                  </div>
+                  <h4 data-i18n="contact.chat_label">Email</h4>
+                  <p data-i18n="contact.chat_desc">Disponible 24/7</p>
+                  <a href="mailto:yair.cordoba.ing@gmail.com">yair.cordoba.ing<br>@gmail.com</a>
+                </div>
+    
+                <div class="info-card">
+                  <div class="info-icon">
+                    <span class="material-symbols-outlined" style="color:var(--primary);font-size:24px;">call</span>
+                  </div>
+                  <h4 data-i18n="contact.call_label">Teléfono</h4>
+                  <p data-i18n="contact.call_desc">Lun–Vie 9am–6pm</p>
+                  <a href="tel:+573008187157">+57 300 818 7157</a>
+                </div>
+    
+                <div class="info-card">
+                  <div class="info-icon">
+                    <span class="material-symbols-outlined" style="color:var(--primary);font-size:24px;">location_on</span>
+                  </div>
+                  <h4 data-i18n="contact.visit_label">Ubicación</h4>
+                  <p data-i18n="contact.visit_desc">Remoto disponible</p>
+                  <a href="#">Medellín, Colombia</a>
+                </div>
+    
+                <div class="info-card">
+                  <div class="info-icon">
+                    <span class="material-symbols-outlined" style="color:var(--primary);font-size:24px;">work</span>
+                  </div>
+                  <h4>LinkedIn</h4>
+                  <p data-i18n="contact.social_desc">Red profesional</p>
+                  <a href="https://linkedin.com/in/yair-cordoba" target="_blank">Ver Perfil →</a>
+                </div>
+              </div>
+    
+              <!-- Social Links -->
+              <div class="social-card">
+                <h3>Encuéntrame en</h3>
+                <div class="social-links-row">
+                  <a href="https://github.com/yaircordoba" target="_blank" class="social-btn github">
+                    <span class="material-symbols-outlined">code</span>
+                    GitHub
+                  </a>
+                  <a href="https://linkedin.com/in/yair-cordoba" target="_blank" class="social-btn linkedin">
+                    <span class="material-symbols-outlined">link</span>
+                    LinkedIn
+                  </a>
+                  <a href="https://codepen.io/Yair-Cordoba" target="_blank" class="social-btn codepen">
+                    <span class="material-symbols-outlined">share</span>
+                    CodePen
+                  </a>
+                  <a href="mailto:yair.cordoba.ing@gmail.com" class="social-btn email">
+                    <span class="material-symbols-outlined">mail</span>
+                    Email
+                  </a>
+                </div>
+                <p style="font-size:0.78rem;color:var(--text-muted);text-align:center;" data-i18n="contact.disclaimer">
+                  Portafolio profesional de ingeniería — Yair.
+                </p>
+              </div>
+            </div>
+    
+            <!-- Right: Form -->
+            <div class="contact-form-card">
+              <h2>✉️ Envíame un mensaje</h2>
+              <form id="contact-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name" data-i18n="contact.name_field">Nombre *</label>
+                    <input type="text" id="name" class="form-control" placeholder="Tu nombre" required autocomplete="given-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="last_name" data-i18n="contact.lastname_field">Apellido *</label>
+                    <input type="text" id="last_name" class="form-control" placeholder="Tu apellido" required autocomplete="family-name">
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label for="email" data-i18n="contact.email_field">Email *</label>
+                  <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com" required autocomplete="email">
+                </div>
+    
+                <div class="form-group">
+                  <label for="subject">Asunto</label>
+                  <input type="text" id="subject" class="form-control" placeholder="¿De qué se trata?">
+                </div>
+    
+                <div class="form-group">
+                  <label for="message" data-i18n="contact.message_field">Mensaje *</label>
+                  <textarea id="message" class="form-control" placeholder="Cuéntame sobre tu proyecto o idea..." required></textarea>
+                </div>
+    
+                <button type="submit" class="btn-submit">
+                  <span class="material-symbols-outlined" style="font-size:20px;">send</span>
+                  <span data-i18n="contact.send_btn">Enviar Mensaje</span>
+                </button>
+              </form>
+            </div>
+    
+          </div>
+    
+          <!-- ── BOTTOM SECTION ── -->
+          <div class="bottom-grid">
+            <!-- CV Card -->
+            <div class="cv-card">
+              <span class="material-symbols-outlined" style="font-size:36px;margin-bottom:12px;display:block;">description</span>
+              <h3 data-i18n="contact.cv_title">Descarga mi CV</h3>
+              <p data-i18n="contact.cv_desc">Trayectoria técnica completa y habilidades en ingeniería.</p>
+              <a href="#" class="btn-white">
+                <span class="material-symbols-outlined" style="font-size:18px;">download</span>
+                <span data-i18n="contact.cv_btn">Descargar CV</span>
+              </a>
+            </div>
+    
+            <!-- Brand card -->
+            <div class="contact-brand">
+              <h2>YAIR.COM <span style="font-size:0.75rem;font-weight:500;opacity:0.6;">Ingeniería</span></h2>
+              <p>+57 300 818 7157 · yair.cordoba.ing@gmail.com</p>
+              <p style="margin-top:8px;font-size:0.75rem;">Medellín, Colombia 🇨🇴 · Disponible para remoto</p>
+            </div>
+          </div>
+    
+        </div>
+      </main>
+
+    <div data-include="footer"></div>
+    <div data-include="search"></div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

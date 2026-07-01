@@ -1,0 +1,157 @@
+/* --- Header --- */
+.app-header {
+    background: var(--bg-main);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding-block: var(--space-md);
+    padding-top: max(var(--space-md), var(--safe-top));
+}
+
+.logo {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    color: var(--text-primary);
+}
+
+.desktop-nav {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .desktop-nav { display: block; }
+    .mobile-only { display: none !important; }
+}
+
+.nav-link {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s, background 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+    background: var(--bg-card-hover);
+}
+
+/* --- Mobile Drawer --- */
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.drawer.active {
+    pointer-events: auto;
+}
+
+.drawer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.drawer.active .drawer-overlay {
+    opacity: 1;
+}
+
+.drawer-content {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 400px;
+    height: 100%;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--border-color);
+    padding: var(--space-xl);
+    padding-top: max(var(--space-xl), var(--safe-top));
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer.active .drawer-content {
+    right: 0;
+}
+
+.drawer-nav {
+    display: flex;
+}
+
+.drawer-nav .nav-link {
+    font-size: var(--text-xl);
+    padding-block: var(--space-sm);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0;
+}
+
+/* --- Buttons & Cards --- */
+.btn-primary {
+    background: var(--accent-primary);
+    color: var(--bg-main);
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: background 0.2s, border-color 0.2s;
+}
+.btn-secondary:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-color-hover);
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    transition: border-color 0.3s, transform 0.3s, background 0.3s;
+}
+
+.card:hover {
+    border-color: var(--border-color-hover);
+    background: var(--bg-card-hover);
+}
+
+/* Status Indicator */
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+}
