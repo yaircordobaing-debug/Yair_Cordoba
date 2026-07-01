@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos | Yair Córdoba - Bug.com</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+
+  <nav-bar></nav-bar>
+
+  <main style="padding-top: 150px;">
+    <section class="section container fade-in-up">
+      <div class="section-header">
+        <h1 class="hero-title" style="font-size: 3rem;"><span data-i18n="projects.title_1">Catálogo de</span> <span class="text-gradient" data-i18n="projects.title_2">Proyectos</span></h1>
+        <p class="text-secondary" data-i18n="projects.subtitle">Explora mis desarrollos técnicos organizados por área de especialización y nivel de impacto.</p>
+      </div>
+
+      <div class="grid-3" id="projects-grid">
+        <!-- populated by js -->
+      </div>
+    </section>
+  </main>
+
+  <footer-bar></footer-bar>
+
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (function() {
+      const d = getData();
+      const grid = document.getElementById('projects-grid');
+      const lang = localStorage.getItem('yc-lang') || 'es';
+
+      d.projects.forEach((p, i) => {
+        const card = document.createElement('a');
+        card.href = `project-detail.html?id=${p.id}`;
+        card.className = 'project-feature-card';
+        
+        card.innerHTML = `
+          <div class="p-card-header">
+            <div class="p-icon-box">
+              <span class="material-symbols-outlined">${['code', 'memory', 'psychology', 'database', 'language', 'science'][i % 6]}</span>
+            </div>
+            <div class="p-dot"></div>
+          </div>
+          <h4 class="p-title">${p.title}</h4>
+          <div class="p-tags">
+            ${p.tags.map(t => `<span class="p-tag">${t}</span>`).join('')}
+          </div>
+          <p class="p-desc">${p.desc}</p>
+          <div class="btn-lean">${lang === 'es' ? 'Ver Detalles' : 'View Details'}</div>
+        `;
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>

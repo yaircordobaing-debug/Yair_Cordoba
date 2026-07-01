@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio | Yair Córdoba</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+  <nav-bar></nav-bar>
+
+  <main style="padding-top: 150px;">
+    <section class="section container fade-in-up">
+      <div class="section-header">
+        <div class="badge" data-i18n="lab.badge">Experimental</div>
+        <h2 class="hero-title"><span class="text-gradient" data-i18n="nav.lab">Laboratorio</span> Técnico</h2>
+        <p class="hero-subtitle" data-i18n="lab.subtitle">Espacio dedicado a la experimentación, prototipado rápido y pruebas de concepto en ingeniería y software.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="glass-card p-lg hover-glow">
+          <div class="icon-wrapper bg-orange">
+            <span class="material-symbols-outlined">science</span>
+          </div>
+          <h3 data-i18n="lab.iot_title">Prototipos IoT</h3>
+          <p class="text-secondary" data-i18n="lab.iot_desc">Pruebas con sensores ultrasónicos, RFID y automatización hídrica utilizando Arduino C++.</p>
+        </div>
+        <div class="glass-card p-lg hover-glow">
+          <div class="icon-wrapper bg-blue">
+            <span class="material-symbols-outlined">terminal</span>
+          </div>
+          <h3 data-i18n="lab.scratch_title">Scratch Scripts</h3>
+          <p class="text-secondary" data-i18n="lab.scratch_desc">Automatizaciones en Python para procesamiento de datos y micro-servicios experimentales.</p>
+        </div>
+        <div class="glass-card p-lg hover-glow">
+          <div class="icon-wrapper bg-green">
+            <span class="material-symbols-outlined">model_training</span>
+          </div>
+          <h3 data-i18n="lab.ia_title">Modelos de IA</h3>
+          <p class="text-secondary" data-i18n="lab.ia_desc">Entrenamiento de modelos básicos de visión computacional y procesamiento de lenguaje natural.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer-bar></footer-bar>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
